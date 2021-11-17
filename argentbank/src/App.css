@@ -259,6 +259,40 @@ body {
   padding: 10px;
 }
 
+.edit-infos{
+  padding-top: 20px;
+}
+
+.edit-infos-user{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.edit-infos-user input {
+  padding: 5px;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+.edit-infos-actions{
+  margin: 20px 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.edit-infos-actions button{
+  padding: 5px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  margin-right: 1rem;
+}
+
+
 .header {
   color: #fff;
   margin-bottom: 2rem;
@@ -274,6 +308,30 @@ body {
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
+}
+
+@media (max-width: 720px) {
+  .edit-infos{
+    padding-top: 20px;
+  }
+  
+  .edit-infos-user{
+    flex-wrap: wrap;
+  }
+  
+  .edit-infos-user input {
+    margin-top: 10px;
+  }
+  
+  .edit-infos-actions{
+    margin: 20px auto;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .edit-infos-actions button{
+    margin-right: 10px;
+  }
 }
 
 @media (min-width: 720px) {
