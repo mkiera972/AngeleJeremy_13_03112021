@@ -4,8 +4,9 @@ import argentBankLogo from '../../assets/argentBankLogo.png';
 import { logout } from '../../actions/auth';
 import { connect } from "react-redux";
 /**
- * COMPOSANT HEADER
- * Cette classe affiche le header
+ * @Header
+ * @classdesc COMPONENT Header
+ * @return DISPLAY Header
  */
 class Header extends React.Component {
   constructor(props) {

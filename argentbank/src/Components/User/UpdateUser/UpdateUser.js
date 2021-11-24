@@ -1,8 +1,14 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { updateUserProfil } from "../../actions/user";
+import { updateUserProfil } from "../../../actions/user";
 
-
+/**
+ * @UpdateUser
+ * @classdesc COMPONENT UpdateUser
+ * UPDATE PROFIL USER
+ * REDUX AUTH / MESSAGE ERROR GESTION
+ * @return DISPLAY MESSAGE IF UPDATE OK
+ */
 class UpdateUser extends React.Component {
   constructor(props){
     super(props)
@@ -15,12 +21,20 @@ class UpdateUser extends React.Component {
     };
   }
 
+  /**
+   * @onChangeInput
+   * @param {objet} e 
+   * GET DATA FROM INPUT AND UPDATE STATE
+   */
   onChangeInput = e => {
     this.setState({
       [e.target.name] : e.target.value,
     });
   }
 
+  /**
+   * @handleClickCancelEditName
+   */
   handleClickCancelEditName(){
     this.props.handleClickCancelEditName();
   }
@@ -31,16 +45,15 @@ class UpdateUser extends React.Component {
   }
   
   render(){
-    console.log(this.props.message)
     return (
       <div className="edit-infos">
         {
-          this.props.message ?
-            <h1 className="success">{this.props.message}</h1>
+          this.props.message 
+          ?
+            <h1 className={this.props.statusMessage}>{this.props.message}</h1>
           :
             ""
         }
-        
         <div className="edit-infos-user">
           <input type="text" id="firstName" name="firstName" required onChange={this.onChangeInput} value={this.state.firstName}/>
           <input type="text" id="lastName" name="lastName" required onChange={this.onChangeInput} value={this.state.lastName}/>
@@ -58,9 +71,11 @@ class UpdateUser extends React.Component {
 function mapStateToProps(state) {
   const { user } = state.auth;
   const { message } = state.message;
+  const { statusMessage } = state.message;
   return {
     user,
-    message
+    message,
+    statusMessage
   };
 }
 

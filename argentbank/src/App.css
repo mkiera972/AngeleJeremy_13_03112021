@@ -310,6 +310,13 @@ body {
   color: #fff;
 }
 
+.success{
+  color: #00bc77;
+}
+
+.warning{
+  color: red
+}
 @media (max-width: 720px) {
   .edit-infos{
     padding-top: 20px;

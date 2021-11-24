@@ -4,7 +4,8 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT,
-    SET_MESSAGE,
+    SET_SUCCESS_MESSAGE,
+    SET_ERROR_MESSAGE,
   } from "./types";
   
   import AuthService from "../services/auth.services";
@@ -17,7 +18,7 @@ import {
         });
   
         dispatch({
-          type: SET_MESSAGE,
+          type: SET_SUCCESS_MESSAGE,
           payload: response.data.message,
         });
   
@@ -36,7 +37,7 @@ import {
         });
   
         dispatch({
-          type: SET_MESSAGE,
+          type: SET_ERROR_MESSAGE,
           payload: message,
         });
   
@@ -68,7 +69,7 @@ import {
         });
   
         dispatch({
-          type: SET_MESSAGE,
+          type: SET_ERROR_MESSAGE,
           payload: message,
         });
   

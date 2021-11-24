@@ -40,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "jsdoc": "^3.6.7",
     "redux-devtools-extension": "^2.13.9"
   }
 }

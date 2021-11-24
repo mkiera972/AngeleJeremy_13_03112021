@@ -3,7 +3,8 @@ import {
     GETPROFIL_FAIL,
     UPDATEPROFIL,
     UPDATEPROFIL_FAIL,
-    SET_MESSAGE,
+    SET_SUCCESS_MESSAGE,
+    SET_ERROR_MESSAGE,
   } from "./types";
   
 import userService from "../services/user.service";
@@ -31,7 +32,7 @@ export const getUserProfil = () => (dispatch) => {
         });
   
         dispatch({
-          type: SET_MESSAGE,
+          type: SET_ERROR_MESSAGE,
           payload: message,
         });
   
@@ -43,15 +44,13 @@ export const getUserProfil = () => (dispatch) => {
 export const updateUserProfil = (firstName, lastName) => (dispatch) => {
   return userService.updateUserProfil(firstName,lastName).then(
     (data) => {
-      console.log(data)
       dispatch({
         type: UPDATEPROFIL,
         payload: { data : data.data.body },
       });
-
       dispatch({
-        type: SET_MESSAGE,
-        payload: data.data.message,
+        type: SET_SUCCESS_MESSAGE,
+        payload: data.data.message ,
       });
       return Promise.resolve();
     },
@@ -68,7 +67,7 @@ export const updateUserProfil = (firstName, lastName) => (dispatch) => {
       });
 
       dispatch({
-        type: SET_MESSAGE,
+        type: SET_ERROR_MESSAGE,
         payload: message,
       });
 

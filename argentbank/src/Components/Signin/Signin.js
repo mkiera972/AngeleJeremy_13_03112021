@@ -3,6 +3,13 @@ import { connect } from "react-redux";
 import { login } from "../../actions/auth";
 import { Redirect } from 'react-router-dom';
 
+/**
+ * @Signin
+ * @classdesc COMPONENT Signin
+ * LOGIN PAGE
+ * REDUX AUTH / MESSAGE ERROR GESTION
+ * @return LOGIN USER / REDIRECT USER IN PAGE USER IF AUTH OK
+ */
 class Signin extends React.Component {
     constructor(props) {
         super(props);
