@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: services/auth.services.js</title>
+    <title>JSDoc: Source: Components/Home/FeatureItem/FeatureItem.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: services/auth.services.js</h1>
+    <h1 class="page-title">Source: Components/Home/FeatureItem/FeatureItem.js</h1>
 
     
 
@@ -26,63 +26,35 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import axios from "axios";
-
-const API_URL = "http://localhost:3001/api/v1/";
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import PropTypes from 'prop-types';
 /**
- * @AuthService
- * @classdesc API AUTH
- * REGISTER USER
- * LOGIN USER
- * LOGOUT USER
- * @return DATA USER OR LOGOUT DATA USER
+ * @FeaturesItem
+ * @classdesc COMPONENT FeaturesItem
+ * @param {string} props.imgSrc  - src img
+ * @param {string} props.imgAlt  - alt img
+ * @param {string} props.title  - title
+ * @param {string} props.description  - description
+ * @return DISPLAY FEATURE ITEM
  */
-class AuthService {
-  /**
-   * @login
-   * @param {string} email 
-   * @param {string} password 
-   * @returns CREDENTIAL / TOKEN USER
-   */
-  login(email, password) {
-    return axios
-      .post(API_URL + "user/login", { email, password })
-      .then((response) => {
-        if (response.data.body.token) {
-          localStorage.setItem("user", JSON.stringify(response.data));
-        }
-        return response.data;
-      });
-  }
-
-  /**
-   * @logout
-   * DESTROY DATA USER IN LOCALSTORAGE
-   */
-  logout() {
-    localStorage.removeItem("user");
-  }
-
-  /**
-   * @register
-   * @param {string} firstName 
-   * @param {string} lastName 
-   * @param {string} email 
-   * @param {string} password 
-   * CREATE USER IN DATABASE 
-   * @returns NEW USER
-   */
-  register(firstName,lastName, email, password) {
-    return axios.post(API_URL + "user/signup", {
-      firstName,
-      lastName,
-      email,
-      password,
-    });
-  }
+ const FeatureItem = ({imgSrc, imgAlt, title, description}) => {
+    return (
+        &lt;div className='feature-item'>
+            &lt;img src={imgSrc} className='feature-icon' alt={imgAlt}/>
+            &lt;h3 className='feature-item-title'>{title}&lt;/h3>
+            &lt;p>{description}&lt;/p>
+        &lt;/div>
+    );
 }
 
-export default new AuthService();</code></pre>
+FeatureItem.propTypes = {
+    imgSrc : PropTypes.string.isRequired,
+    imgAlt : PropTypes.string.isRequired,
+    title : PropTypes.string.isRequired,
+    description : PropTypes.string.isRequired,
+}
+
+export default FeatureItem;</code></pre>
         </article>
     </section>
 

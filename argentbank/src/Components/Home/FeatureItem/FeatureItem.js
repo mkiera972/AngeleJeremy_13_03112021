@@ -2,8 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 /**
  * @FeaturesItem
- * @classdesc COMPONENT Home
- * @return DISPLAY HOME PAGE
+ * @classdesc COMPONENT FeaturesItem
+ * @param {string} props.imgSrc  - src img
+ * @param {string} props.imgAlt  - alt img
+ * @param {string} props.title  - title
+ * @param {string} props.description  - description
+ * @return DISPLAY FEATURE ITEM
  */
  const FeatureItem = ({imgSrc, imgAlt, title, description}) => {
     return (

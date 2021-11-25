@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: services/auth.services.js</title>
+    <title>JSDoc: Source: Components/User/AccountContent/AccountContent.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: services/auth.services.js</h1>
+    <h1 class="page-title">Source: Components/User/AccountContent/AccountContent.js</h1>
 
     
 
@@ -26,63 +26,40 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import axios from "axios";
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import PropTypes from 'prop-types';
 
-const API_URL = "http://localhost:3001/api/v1/";
 /**
- * @AuthService
- * @classdesc API AUTH
- * REGISTER USER
- * LOGIN USER
- * LOGOUT USER
- * @return DATA USER OR LOGOUT DATA USER
+ * @AccountContent
+ * @classdesc COMPONENT AccountContent
+ * GET DATA FROM COMPONENT USER
+ * @param {string} props.amount  - amount
+ * @param {string} props.title  - title
+ * @param {string} props.description  - description
+ * @return DISPLAY INFOS ACOUNT
  */
-class AuthService {
-  /**
-   * @login
-   * @param {string} email 
-   * @param {string} password 
-   * @returns CREDENTIAL / TOKEN USER
-   */
-  login(email, password) {
-    return axios
-      .post(API_URL + "user/login", { email, password })
-      .then((response) => {
-        if (response.data.body.token) {
-          localStorage.setItem("user", JSON.stringify(response.data));
-        }
-        return response.data;
-      });
-  }
-
-  /**
-   * @logout
-   * DESTROY DATA USER IN LOCALSTORAGE
-   */
-  logout() {
-    localStorage.removeItem("user");
-  }
-
-  /**
-   * @register
-   * @param {string} firstName 
-   * @param {string} lastName 
-   * @param {string} email 
-   * @param {string} password 
-   * CREATE USER IN DATABASE 
-   * @returns NEW USER
-   */
-  register(firstName,lastName, email, password) {
-    return axios.post(API_URL + "user/signup", {
-      firstName,
-      lastName,
-      email,
-      password,
-    });
-  }
+const AccountContent = ({title, amount, description}) => {
+    return (
+        &lt;section className='account'>
+            &lt;article className='account-content-wrapper'>
+                &lt;h3 className='account-title'>{title}&lt;/h3>
+                &lt;p className='account-amount'>{amount}&lt;/p>
+                &lt;p className='account-amount-description'>{description}&lt;/p>
+            &lt;/article>
+            &lt;div className='account-content-wrapper cta'>
+               &lt;button className='transaction-button'>View transactions&lt;/button>
+            &lt;/div>
+        &lt;/section>
+    );
 }
 
-export default new AuthService();</code></pre>
+AccountContent.propTypes = {
+    title : PropTypes.string.isRequired,
+    amount : PropTypes.string.isRequired,
+    description : PropTypes.string.isRequired,
+}
+
+export default AccountContent;</code></pre>
         </article>
     </section>
 

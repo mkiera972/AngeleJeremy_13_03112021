@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
  * @AccountContent
  * @classdesc COMPONENT AccountContent
  * GET DATA FROM COMPONENT USER
+ * @param {string} props.amount  - amount
+ * @param {string} props.title  - title
+ * @param {string} props.description  - description
  * @return DISPLAY INFOS ACOUNT
  */
 const AccountContent = ({title, amount, description}) => {
