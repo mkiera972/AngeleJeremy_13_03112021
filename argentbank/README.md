@@ -14,7 +14,11 @@
 - [Axios](https://github.com/axios/axios): v0.24.0
 `$ npm install axios`     
 - [react-redux](https://react-redux.js.org/introduction/getting-started): v7.2.6  
-`$ npm install react-redux`   
+`$ npm install react-redux`
+- [redux](https://redux.js.org/introduction/getting-started): v4.1.2 
+`$ npm install redux`
+- [redux-thunk](https://redux.js.org/usage/writing-logic-thunks): v2.4.0 
+`$ npm install redux-thunk`  
 - [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension): v2.13.9   
 `$ npm install --save redux-devtools-extension`
 - Recommended text editor: [Visual Studio Code](https://code.visualstudio.com)    
