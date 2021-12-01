@@ -12,24 +12,32 @@ import { Redirect } from 'react-router-dom';
  */
 class Signin extends React.Component {
     constructor(props) {
-        super(props);
-        this.handleLogin = this.handleLogin.bind(this);
-        this.onChangeEmail = this.onChangeEmail.bind(this);
-        this.onChangePassword = this.onChangePassword.bind(this);
+      super(props);
+      this.handleLogin = this.handleLogin.bind(this);
+      this.onChangeEmail = this.onChangeEmail.bind(this);
+      this.onChangePassword = this.onChangePassword.bind(this);
+  
+      this.state = {
+        username: "",
+        password: "",
+        loading: false,
+      };
+    }
     
-        this.state = {
-          username: "",
-          password: "",
-          loading: false,
-        };
-      }
-
+    /**
+     * Get data input email
+     * @param {event} e event onchange
+     */
     onChangeEmail(e) {
         this.setState({
           email: e.target.value,
         });
     }
     
+    /**
+     * Get data input password
+     * @param {event} e event onchange
+     */
     onChangePassword(e) {
         this.setState({
           password: e.target.value,
@@ -37,6 +45,11 @@ class Signin extends React.Component {
     }
 
 
+    /**
+     * Send data from redux to api with axios
+     * @param {event} e event onsubmit
+     * @return USER LOGIN OK OR USER LOGIN KO
+     */
     handleLogin(e) {
         e.preventDefault();
         const { dispatch, history } = this.props;
@@ -68,8 +81,8 @@ class Signin extends React.Component {
                     ><input type="text" id="username" required onChange={this.onChangeEmail}/>
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="password">Password</label
-                    ><input type="password" id="password" required onChange={this.onChangePassword}/>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" required onChange={this.onChangePassword}/>
                 </div>
                 <div className="input-remember">
                     <input type="checkbox" id="remember-me" /><label htmlFor="remember-me"

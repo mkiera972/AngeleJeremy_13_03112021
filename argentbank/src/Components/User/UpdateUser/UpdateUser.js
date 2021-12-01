@@ -34,11 +34,17 @@ class UpdateUser extends React.Component {
 
   /**
    * @handleClickCancelEditName
+   * SEND ACTION TO COMPONENT PARENT
    */
   handleClickCancelEditName(){
     this.props.handleClickCancelEditName();
   }
 
+  /**
+   * @handleUpdateUserInfos
+   * SEND TO REDUX ACTION UPDATE USER AND CALL API
+   * @return USER DATA UPDATE
+   */
   handleUpdateUserInfos() {
     const { dispatch } = this.props;
     dispatch(updateUserProfil(this.state.firstName, this.state.lastName));
