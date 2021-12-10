@@ -1,6 +1,6 @@
 import axios from "axios";
+import { API_URL } from "../globals/globals";
 
-const API_URL = "http://localhost:3001/api/v1/";
 /**
  * @AuthService
  * @classdesc API AUTH

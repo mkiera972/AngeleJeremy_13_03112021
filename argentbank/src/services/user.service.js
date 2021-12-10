@@ -1,7 +1,6 @@
 import axios from 'axios';
 import authHeader from './auth-header';
-
-const API_URL = 'http://localhost:3001/api/v1/';
+import { API_URL } from "../globals/globals";
 /**
  * @UserService
  * @classdesc API AUTH
